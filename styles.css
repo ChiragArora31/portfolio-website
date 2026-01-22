@@ -339,11 +339,17 @@ section {
 }
 
 /* ===== Projects Section ===== */
+.project-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
 .projects-grid {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    max-width: 600px;
 }
 
 .project-card {
@@ -377,6 +383,8 @@ section {
 .project-link {
     display: block;
     text-decoration: none;
+    flex: 1;
+    max-width: 600px;
 }
 
 .project-link .project-card {
@@ -508,6 +516,16 @@ section {
     }
 
     .blog-date {
+        align-self: flex-end;
+    }
+
+    .project-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .project-item .blog-date {
         align-self: flex-end;
     }
 
