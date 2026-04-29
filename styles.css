@@ -349,9 +349,9 @@ section {
 /* ===== Projects Section ===== */
 .project-item {
     display: grid;
-    grid-template-rows: 1fr auto;
-    align-items: stretch;
-    gap: 0.55rem;
+    grid-template-columns: minmax(0, 1fr) 190px;
+    align-items: start;
+    gap: 1.25rem;
 }
 
 .projects-grid {
@@ -378,7 +378,6 @@ section {
     font-weight: 600;
     color: var(--secondary-color);
     margin: 0;
-    min-height: 2.9rem;
 }
 
 .project-description {
@@ -393,7 +392,7 @@ section {
     display: block;
     text-decoration: none;
     width: 100%;
-    max-width: none;
+    max-width: 680px;
 }
 
 .project-link .project-card {
@@ -403,8 +402,6 @@ section {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     padding: 1.25rem;
-    min-height: 222px;
-    height: 100%;
     transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     cursor: pointer;
 }
@@ -433,6 +430,14 @@ section {
 
 .project-link:hover .project-title {
     color: var(--primary-color);
+}
+
+.project-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.4rem;
+    padding-top: 0.05rem;
 }
 
 /* ===== Footer ===== */
@@ -531,14 +536,17 @@ section {
     }
 
     .project-item {
-        display: grid;
-        align-items: stretch;
+        grid-template-columns: 1fr;
+        align-items: start;
         gap: 0.5rem;
     }
 
-    .project-item .blog-date,
-    .project-meta-link {
-        align-self: flex-start;
+    .project-link {
+        max-width: none;
+    }
+
+    .project-meta {
+        align-items: flex-start;
     }
 
     .footer-links {
