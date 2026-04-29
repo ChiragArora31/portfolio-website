@@ -338,6 +338,14 @@ section {
     flex-shrink: 0;
 }
 
+.project-meta-link {
+    font-size: 0.78rem;
+    color: var(--primary-color);
+    font-family: var(--font-mono);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
 /* ===== Projects Section ===== */
 .project-item {
     display: flex;
