@@ -3,207 +3,271 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Chirag Arora - Software Developer Portfolio">
+    <meta name="description" content="Chirag Arora - Software Engineer building high-signal AI systems and proof-of-work products.">
     <meta name="author" content="Chirag Arora">
-    <meta name="theme-color" content="#000000">
-    
-    <!-- Open Graph / Social Media -->
+    <meta name="theme-color" content="#070b14">
+
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Chirag Arora - Software Developer">
-    <meta property="og:description" content="Software Engineer and CS nerd who loves building for the web. Passionate about AI, LLMs, and side projects.">
-    <meta property="og:url" content="https://yourwebsite.com">
-    
-    <!-- Twitter Card -->
+    <meta property="og:title" content="Chirag Arora - AI Systems Engineer">
+    <meta property="og:description" content="Proof-of-work driven portfolio: LLM systems, vector infrastructure, realtime products, and developer tools.">
+
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Chirag Arora - Software Developer">
-    <meta name="twitter:description" content="Software Engineer and CS nerd who loves building for the web.">
+    <meta name="twitter:title" content="Chirag Arora - AI Systems Engineer">
+    <meta name="twitter:description" content="I build practical AI products with real technical depth.">
     <meta name="twitter:creator" content="@iChiragArora">
-    
-    <title>Chirag Arora - Software Developer</title>
+
+    <title>Chirag Arora - AI Systems Engineer</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
-    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Skip to main content for accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    
-    <!-- Scroll Progress Indicator -->
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="bg-glow" aria-hidden="true"></div>
     <div class="scroll-progress" id="scrollProgress" role="progressbar" aria-label="Reading progress"></div>
-    
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="#home">Chirag Arora</a>
-            </div>
-            <div class="nav-right">
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                    <svg class="theme-icon moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg class="theme-icon sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Main Content -->
+    <header class="site-header" id="top">
+        <nav class="navbar" aria-label="Primary navigation">
+            <a class="brand" href="#home">Chirag Arora</a>
+            <div class="nav-links">
+                <a href="#projects">Projects</a>
+                <a href="#builder-console">Builder Console</a>
+                <a href="#writing">Writing</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" aria-pressed="false">
+                <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3c.58 0 1.15.06 1.7.17A7 7 0 0 0 21 12.79z"></path>
+                </svg>
+                <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+                </svg>
+            </button>
+        </nav>
+    </header>
+
     <main id="main-content">
-        <!-- Hero Section -->
-        <section id="home" class="hero" aria-label="Introduction">
-            <div class="container">
-                <p class="hero-intro">Hey, I'm Chirag, a software engineer who likes building things that feel obvious in hindsight.</p>
-                <div class="about-details">
-                    <div class="detail-item">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                            <circle cx="12" cy="10" r="3"></circle>
-                        </svg>
-                        <span>Pune, India</span>
+        <section id="home" class="hero section" aria-label="Introduction">
+            <div class="container hero-layout">
+                <div class="hero-content">
+                    <p class="eyebrow animate-seq">Software Engineer @ HSBC | Pune, India</p>
+                    <h1 class="animate-seq">I build AI products that feel simple on the surface and serious under the hood.</h1>
+                    <p class="hero-subcopy animate-seq">
+                        I focus on LLM systems, retrieval infrastructure, and developer-facing tools that convert raw technical complexity into usable products.
+                        My edge is shipping ideas from first-principles architecture to polished interfaces fast.
+                    </p>
+                    <div class="hero-cta animate-seq">
+                        <a href="#projects" class="btn btn-primary">See proof of work</a>
+                        <a href="https://github.com/ChiragArora31/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">GitHub</a>
                     </div>
-                    <div class="detail-item">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                        </svg>
-                        <span>Software Engineer @HSBC</span>
-                    </div>
-                    <div class="detail-item">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                        </svg>
-                        <span>B.E. Computer Engineering, Thapar Institute of Engineering and Technology, Patiala</span>
-                    </div>
+                    <ul class="hero-highlights animate-seq" aria-label="Highlights">
+                        <li>Built a vector database from scratch</li>
+                        <li>Shipped on-device LLM inference pipeline</li>
+                        <li>Designed AI UX products used by real developers</li>
+                    </ul>
                 </div>
-                <p class="hero-bio">
-                    I love hacking side projects around AI and LLMs that blur the line between code and creativity.
-                    <br>I probably talk to Claude more than most humans.
-                    <br>Powered by coffee, math and Python.
-                </p>
+
+                <aside class="hero-panel reveal" data-delay="120" aria-label="Signal snapshot">
+                    <p class="panel-title">Signal Snapshot</p>
+                    <div class="panel-row">
+                        <span>Role</span>
+                        <strong>AI Product Builder</strong>
+                    </div>
+                    <div class="panel-row">
+                        <span>Primary Stack</span>
+                        <strong>Python, LLM APIs, JS</strong>
+                    </div>
+                    <div class="panel-row">
+                        <span>Current Focus</span>
+                        <strong>RAG + On-device AI</strong>
+                    </div>
+                    <div class="panel-row">
+                        <span>Shipping Mode</span>
+                        <strong>Build, test, iterate weekly</strong>
+                    </div>
+                </aside>
             </div>
         </section>
 
-        <!-- Blog Section -->
-        <section id="blog" class="blog" aria-label="Blog posts">
+        <section id="projects" class="section projects" aria-label="Projects">
             <div class="container">
-                <h2 class="section-title">Blog</h2>
-                <div class="blog-list">
-                    <article class="blog-item">
-                        <a href="https://medium.com/@chiragarora1831/stop-reading-docs-start-talking-introducing-api-talks-6054b55aecd1" target="_blank" rel="noopener noreferrer" class="blog-link">
-                            <div class="blog-card">
-                                <h3 class="blog-title">Stop Reading Docs. Start Talking. Introducing API-Talks</h3>
-                                <svg class="blog-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                                    <polyline points="15 3 21 3 21 9"></polyline>
-                                    <line x1="10" y1="14" x2="21" y2="3"></line>
-                                </svg>
-                            </div>
-                        </a>
-                        <span class="blog-date">Nov 2, 2025</span>
+                <div class="section-head reveal">
+                    <p class="section-kicker">Selected Work</p>
+                    <h2>Each project is a deliberate technical bet, not a tutorial clone.</h2>
+                </div>
+
+                <div class="projects-grid">
+                    <article class="project-card reveal" data-delay="0">
+                        <div class="project-top">
+                            <h3>PaperLens</h3>
+                            <span>Feb 22, 2026</span>
+                        </div>
+                        <p><strong>Problem:</strong> Research papers are information-dense and hard to digest quickly.</p>
+                        <p><strong>Technical Edge:</strong> Converts long-form papers into visual summaries and structured insight blocks optimized for skim and depth modes.</p>
+                        <p><strong>Proof:</strong> Demonstrates product-level AI UX thinking, prompt orchestration, and information design.</p>
+                        <ul class="tags" aria-label="PaperLens tags">
+                            <li>AI UX</li>
+                            <li>LLMs</li>
+                            <li>Research Parsing</li>
+                            <li>Visualization</li>
+                        </ul>
+                        <a href="https://www.paperlens.in/" target="_blank" rel="noopener noreferrer" class="project-link">Open project <span aria-hidden="true">-></span></a>
+                    </article>
+
+                    <article class="project-card reveal" data-delay="60">
+                        <div class="project-top">
+                            <h3>VecSearch</h3>
+                            <span>Feb 14, 2026</span>
+                        </div>
+                        <p><strong>Problem:</strong> Most semantic retrieval systems rely on black-box infrastructure.</p>
+                        <p><strong>Technical Edge:</strong> Built a vector database from scratch with embedding storage, indexing, and cosine similarity retrieval.</p>
+                        <p><strong>Proof:</strong> Shows deep understanding of core RAG infrastructure and search-performance tradeoffs.</p>
+                        <ul class="tags" aria-label="VecSearch tags">
+                            <li>Vector Search</li>
+                            <li>RAG</li>
+                            <li>Embeddings</li>
+                            <li>Infra</li>
+                        </ul>
+                        <a href="https://github.com/ChiragArora31/VecSearch" target="_blank" rel="noopener noreferrer" class="project-link">Open repository <span aria-hidden="true">-></span></a>
+                    </article>
+
+                    <article class="project-card reveal" data-delay="120">
+                        <div class="project-top">
+                            <h3>PocketLlama</h3>
+                            <span>Jan 21, 2026</span>
+                        </div>
+                        <p><strong>Problem:</strong> Cloud-dependent LLM products fail in low-connectivity scenarios.</p>
+                        <p><strong>Technical Edge:</strong> End-to-end on-device TinyLlama pipeline tuned for efficient local inference and responsive interaction.</p>
+                        <p><strong>Proof:</strong> Validates mobile AI systems capability across model constraints and optimization strategy.</p>
+                        <ul class="tags" aria-label="PocketLlama tags">
+                            <li>On-device LLM</li>
+                            <li>Mobile Inference</li>
+                            <li>TinyLlama</li>
+                            <li>Optimization</li>
+                        </ul>
+                        <a href="https://github.com/ChiragArora31/PocketLlama" target="_blank" rel="noopener noreferrer" class="project-link">Open repository <span aria-hidden="true">-></span></a>
+                    </article>
+
+                    <article class="project-card reveal" data-delay="180">
+                        <div class="project-top">
+                            <h3>SkyPing</h3>
+                            <span>Nov 21, 2025</span>
+                        </div>
+                        <p><strong>Problem:</strong> Flight activity monitoring tools are noisy and not context-aware for local use.</p>
+                        <p><strong>Technical Edge:</strong> Real-time aircraft tracking around Pune Airport with event-based logic and intelligent notification triggers.</p>
+                        <p><strong>Proof:</strong> Proves realtime data handling and pragmatic system design for signal extraction.</p>
+                        <ul class="tags" aria-label="SkyPing tags">
+                            <li>Realtime Systems</li>
+                            <li>Event Logic</li>
+                            <li>Geospatial</li>
+                            <li>Alerts</li>
+                        </ul>
+                        <a href="https://github.com/ChiragArora31/SkyPing" target="_blank" rel="noopener noreferrer" class="project-link">Open repository <span aria-hidden="true">-></span></a>
+                    </article>
+
+                    <article class="project-card reveal" data-delay="240">
+                        <div class="project-top">
+                            <h3>API-Talks</h3>
+                            <span>Nov 2, 2025</span>
+                        </div>
+                        <p><strong>Problem:</strong> API docs are static, fragmented, and slow to query during implementation.</p>
+                        <p><strong>Technical Edge:</strong> Conversational layer over API documentation with context-aware response flow for developer questions.</p>
+                        <p><strong>Proof:</strong> Demonstrates strong API thinking, LLM interaction design, and developer productivity focus.</p>
+                        <ul class="tags" aria-label="API-Talks tags">
+                            <li>APIs</li>
+                            <li>LLM Interface</li>
+                            <li>Developer Tooling</li>
+                            <li>DX</li>
+                        </ul>
+                        <a href="https://github.com/ChiragArora31/API-Talks" target="_blank" rel="noopener noreferrer" class="project-link">Open repository <span aria-hidden="true">-></span></a>
                     </article>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="projects" aria-label="Projects">
+        <section id="builder-console" class="section builder-console" aria-label="Builder console">
             <div class="container">
-                <h2 class="section-title">Projects</h2>
-                <div class="projects-grid">
-                    <div class="project-item">
-                        <a href="https://www.paperlens.in/" target="_blank" rel="noopener noreferrer" class="project-link">
-                            <article class="project-card">
-                                <div class="project-header">
-                                    <h3 class="project-title">PaperLens</h3>
-                                </div>
-                                <p class="project-description">
-                                    Transforms dense research papers into clear visual explanations and structured insights within seconds. Designed to make complex ideas intuitive by turning long-form technical content into easily graspable understanding.
-                                </p>
-                            </article>
-                        </a>
-                        <span class="blog-date">Feb 22, 2026</span>
+                <div class="section-head reveal">
+                    <p class="section-kicker">X-Factor</p>
+                    <h2>Builder Console: how I think, what I am building, and where I am heading.</h2>
+                </div>
+
+                <div class="console reveal" data-delay="100">
+                    <div class="console-tabs" role="tablist" aria-label="Builder console tabs">
+                        <button class="tab is-active" role="tab" aria-selected="true" aria-controls="panel-systems" id="tab-systems" data-target="panel-systems">Systems Built</button>
+                        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-exploring" id="tab-exploring" data-target="panel-exploring">Currently Exploring</button>
+                        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-principles" id="tab-principles" data-target="panel-principles">Engineering Principles</button>
                     </div>
-                    <div class="project-item">
-                        <a href="https://github.com/ChiragArora31/VecSearch" target="_blank" rel="noopener noreferrer" class="project-link">
-                            <article class="project-card">
-                                <div class="project-header">
-                                    <h3 class="project-title">VecSearch</h3>
-                                </div>
-                                <p class="project-description">
-                                    A vector database built from scratch to power semantic search and retrieval without external dependencies. Implements embedding storage, similarity indexing, and fast cosine search to understand and recreate the core infrastructure behind modern LLM and RAG systems.
-                                </p>
-                            </article>
-                        </a>
-                        <span class="blog-date">Feb 14, 2026</span>
+
+                    <div class="console-panels">
+                        <section class="console-panel is-active" role="tabpanel" id="panel-systems" aria-labelledby="tab-systems">
+                            <ul>
+                                <li><strong>Retrieval Infrastructure:</strong> Implemented semantic retrieval primitives from scratch to understand recall/latency tradeoffs directly.</li>
+                                <li><strong>On-device AI:</strong> Shipped local inference paths where cloud dependence is a hard constraint.</li>
+                                <li><strong>Developer AI Interfaces:</strong> Built conversational overlays that compress documentation lookup time.</li>
+                            </ul>
+                        </section>
+
+                        <section class="console-panel" role="tabpanel" id="panel-exploring" aria-labelledby="tab-exploring" hidden>
+                            <ul>
+                                <li><strong>Multimodal Workflows:</strong> Converting unstructured technical inputs into executable insight pipelines.</li>
+                                <li><strong>RAG Quality Metrics:</strong> Better ways to evaluate retrieval quality beyond naive top-k checks.</li>
+                                <li><strong>Latency-aware UX:</strong> Designing AI interfaces that still feel instant under constrained inference budgets.</li>
+                            </ul>
+                        </section>
+
+                        <section class="console-panel" role="tabpanel" id="panel-principles" aria-labelledby="tab-principles" hidden>
+                            <ul>
+                                <li><strong>Build from first principles:</strong> Understand internals before layering abstractions.</li>
+                                <li><strong>Ship with constraints:</strong> Performance, reliability, and usability are part of feature scope.</li>
+                                <li><strong>Optimize for signal:</strong> Every product should prove a capability, not just look interesting.</li>
+                            </ul>
+                        </section>
                     </div>
-                    <div class="project-item">
-                        <a href="https://github.com/ChiragArora31/PocketLlama" target="_blank" rel="noopener noreferrer" class="project-link">
-                            <article class="project-card">
-                                <div class="project-header">
-                                    <h3 class="project-title">PocketLlama</h3>
-                                </div>
-                                <p class="project-description">
-                                    An end-to-end on-device LLM implementation using TinyLlama, enabling offline conversational AI through optimized mobile inference pipelines and efficient resource utilization.
-                                </p>
-                            </article>
-                        </a>
-                        <span class="blog-date">Jan 21, 2026</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="writing" class="section writing" aria-label="Blog posts">
+            <div class="container">
+                <div class="section-head reveal">
+                    <p class="section-kicker">Writing</p>
+                    <h2>I share practical AI build lessons, not recycled theory.</h2>
+                </div>
+                <article class="writing-card reveal" data-delay="90">
+                    <div>
+                        <p class="writing-date">Nov 2, 2025</p>
+                        <h3>Stop Reading Docs. Start Talking. Introducing API-Talks</h3>
                     </div>
-                    <div class="project-item">
-                        <a href="https://github.com/ChiragArora31/SkyPing" target="_blank" rel="noopener noreferrer" class="project-link">
-                            <article class="project-card">
-                                <div class="project-header">
-                                    <h3 class="project-title">SkyPing</h3>
-                                </div>
-                                <p class="project-description">
-                                    Real-time flight tracking system that monitors aircraft activity around Pune Airport with intelligent notifications.
-                                </p>
-                            </article>
-                        </a>
-                        <span class="blog-date">Nov 21, 2025</span>
-                    </div>
-                    <div class="project-item">
-                        <a href="https://github.com/ChiragArora31/API-Talks" target="_blank" rel="noopener noreferrer" class="project-link">
-                            <article class="project-card">
-                                <div class="project-header">
-                                    <h3 class="project-title">API-Talks</h3>
-                                </div>
-                                <p class="project-description">
-                                    Transform API documentation into conversational experiences. Chat with your APIs naturally and get instant, context-aware responses.
-                                </p>
-                            </article>
-                        </a>
-                        <span class="blog-date">Nov 2, 2025</span>
-                    </div>
+                    <a href="https://medium.com/@chiragarora1831/stop-reading-docs-start-talking-introducing-api-talks-6054b55aecd1" target="_blank" rel="noopener noreferrer" class="project-link">Read article <span aria-hidden="true">-></span></a>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact" aria-label="Contact">
+            <div class="container contact-panel reveal" data-delay="120">
+                <p class="section-kicker">Contact</p>
+                <h2>If you are building ambitious AI products, we should talk.</h2>
+                <p>I am open to high-impact engineering roles, collaborations, and product ideas where technical depth actually matters.</p>
+                <div class="contact-links">
+                    <a href="mailto:chiragarora1831@gmail.com">Email</a>
+                    <a href="https://github.com/ChiragArora31/" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://www.linkedin.com/in/chirag-arora-3107/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="https://x.com/iChiragArora" target="_blank" rel="noopener noreferrer">X</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-links">
-                <a href="https://github.com/ChiragArora31/" target="_blank" rel="noopener noreferrer" class="footer-link">Github</a>
-                <a href="https://www.linkedin.com/in/chirag-arora-3107/" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a>
-                <a href="https://x.com/iChiragArora" target="_blank" rel="noopener noreferrer" class="footer-link">X</a>
-                <a href="mailto:chiragarora1831@gmail.com" class="footer-link">Email</a>
-            </div>
+        <div class="container footer-content">
+            <p>&copy; <span id="year"></span> Chirag Arora</p>
+            <p>Designed and engineered with intent.</p>
         </div>
     </footer>
 

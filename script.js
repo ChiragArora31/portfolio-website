@@ -1,111 +1,120 @@
-// ===== Theme Toggle Functionality =====
-const themeToggle = document.getElementById('themeToggle');
 const html = document.documentElement;
-
-// Get saved theme from localStorage or default to dark
-const savedTheme = localStorage.getItem('theme') || 'dark';
-html.setAttribute('data-theme', savedTheme);
-
-// Update navbar background based on theme
-function updateNavbarTheme() {
-    const navbar = document.querySelector('.navbar');
-    const currentTheme = html.getAttribute('data-theme');
-
-    if (currentTheme === 'light') {
-        navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-    } else {
-        navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.95)';
-    }
-}
-
-// Initialize navbar theme
-updateNavbarTheme();
-
-// Theme toggle event listener
-if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-        const currentTheme = html.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-        html.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        updateNavbarTheme();
-    });
-}
-
-// ===== Scroll Handlers (Combined for Performance) =====
+const themeToggle = document.getElementById('themeToggle');
 const navbar = document.querySelector('.navbar');
 const scrollProgress = document.getElementById('scrollProgress');
-let lastScroll = 0;
+const revealItems = document.querySelectorAll('.reveal');
+const tabs = document.querySelectorAll('.tab');
+const year = document.getElementById('year');
 
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    const currentTheme = html.getAttribute('data-theme');
+if (year) {
+    year.textContent = String(new Date().getFullYear());
+}
 
-    // Update navbar background on scroll
-    if (currentScroll > 50) {
-        if (currentTheme === 'light') {
-            navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
-        } else {
-            navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.98)';
-        }
-        navbar.style.boxShadow = '0 10px 30px -10px rgba(0, 0, 0, 0.1)';
-    } else {
-        if (currentTheme === 'light') {
-            navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-        } else {
-            navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.95)';
-        }
-        navbar.style.boxShadow = 'none';
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const savedTheme = localStorage.getItem('theme');
+const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+html.setAttribute('data-theme', initialTheme);
+
+function updateThemeState(theme) {
+    if (!themeToggle) {
+        return;
     }
 
-    // Update scroll progress bar
-    const scrollTop = currentScroll || document.documentElement.scrollTop;
-    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrollPercentage = (scrollTop / scrollHeight) * 100;
+    const isLight = theme === 'light';
+    themeToggle.setAttribute('aria-pressed', String(isLight));
+}
 
-    if (scrollProgress) {
-        scrollProgress.style.width = scrollPercentage + '%';
-    }
+updateThemeState(initialTheme);
 
-    lastScroll = currentScroll;
-});
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const current = html.getAttribute('data-theme') || 'dark';
+        const next = current === 'dark' ? 'light' : 'dark';
 
-// ===== Intersection Observer for Fade-in Animations =====
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        updateThemeState(next);
     });
-}, observerOptions);
+}
 
-// Observe elements for animation
-const animateElements = document.querySelectorAll('.blog-card, .project-card');
-animateElements.forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-    observer.observe(el);
+let ticking = false;
+
+function handleScroll() {
+    if (ticking) {
+        return;
+    }
+
+    ticking = true;
+
+    requestAnimationFrame(() => {
+        const currentScroll = window.scrollY || window.pageYOffset;
+
+        if (navbar) {
+            navbar.classList.toggle('scrolled', currentScroll > 12);
+        }
+
+        if (scrollProgress) {
+            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            const percent = maxScroll > 0 ? (currentScroll / maxScroll) * 100 : 0;
+            scrollProgress.style.width = `${Math.min(percent, 100)}%`;
+        }
+
+        ticking = false;
+    });
+}
+
+window.addEventListener('scroll', handleScroll, { passive: true });
+handleScroll();
+
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (!reduceMotion && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+                return;
+            }
+
+            const delay = Number(entry.target.dataset.delay || 0);
+            entry.target.style.transitionDelay = `${delay}ms`;
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+        });
+    }, {
+        threshold: 0.16,
+        rootMargin: '0px 0px -8% 0px'
+    });
+
+    revealItems.forEach((item) => observer.observe(item));
+} else {
+    revealItems.forEach((item) => item.classList.add('is-visible'));
+}
+
+function activateTab(targetId) {
+    const panels = document.querySelectorAll('.console-panel');
+
+    tabs.forEach((tab) => {
+        const isActive = tab.dataset.target === targetId;
+        tab.classList.toggle('is-active', isActive);
+        tab.setAttribute('aria-selected', String(isActive));
+    });
+
+    panels.forEach((panel) => {
+        const isActive = panel.id === targetId;
+        panel.classList.toggle('is-active', isActive);
+        panel.hidden = !isActive;
+    });
+}
+
+tabs.forEach((tab) => {
+    tab.addEventListener('click', () => activateTab(tab.dataset.target));
 });
 
-// ===== Update navbar on theme change =====
-// Listen for theme changes and update navbar accordingly
-const themeObserver = new MutationObserver(() => {
-    updateNavbarTheme();
-});
-
-themeObserver.observe(html, {
-    attributes: true,
-    attributeFilter: ['data-theme']
-});
-
-// ===== Console Message =====
-console.log('%c👋 Hello! Thanks for checking out my portfolio.', 'color: #3b82f6; font-size: 16px; font-weight: bold;');
-console.log('%cWant to see the code? Check out the repository!', 'color: #94a3b8; font-size: 12px;');
+if (!reduceMotion) {
+    window.addEventListener('pointermove', (event) => {
+        const x = (event.clientX / window.innerWidth) * 100;
+        const y = (event.clientY / window.innerHeight) * 100;
+        html.style.setProperty('--glow-x', `${x}%`);
+        html.style.setProperty('--glow-y', `${y}%`);
+    }, { passive: true });
+}
