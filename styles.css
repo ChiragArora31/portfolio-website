@@ -186,9 +186,21 @@ hr {
 }
 
 .story p:last-child,
+.now-list,
 #writing p:last-child,
 #contact p:last-child {
     margin-bottom: 0;
+}
+
+.now-list {
+    display: grid;
+    gap: 0.65rem;
+    max-width: 68ch;
+    padding-left: 1.2rem;
+}
+
+.now-list li::marker {
+    color: var(--link-color);
 }
 
 .projects-grid {
@@ -262,6 +274,11 @@ hr {
 }
 
 .collection-list span {
+    color: var(--muted-color);
+}
+
+.collection-list a + span::before {
+    content: " - ";
     color: var(--muted-color);
 }
 
