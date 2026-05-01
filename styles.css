@@ -126,9 +126,15 @@ hr {
 }
 
 .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg-color);
+    border-bottom: 1px solid transparent;
     max-width: var(--container);
     margin: 0 auto;
-    padding: 1.15rem 1.5rem 0;
+    padding: 1.15rem 1.5rem 0.8rem;
+    transition: background-color var(--transition), border-color var(--transition);
 }
 
 .nav {
