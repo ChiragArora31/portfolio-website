@@ -198,6 +198,15 @@ hr {
     margin-bottom: 0;
 }
 
+.contact-note,
+.section-pointer {
+    color: var(--muted-color);
+}
+
+.contact-note {
+    margin-top: 1.4rem;
+}
+
 .now-list {
     display: grid;
     gap: 0.65rem;
@@ -267,6 +276,10 @@ hr {
 
 .collection-page h2 {
     font-size: clamp(1.65rem, 4vw, 2.35rem);
+}
+
+.section-pointer {
+    margin-top: -0.25rem;
 }
 
 .collection-list {
