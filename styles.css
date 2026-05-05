@@ -301,6 +301,15 @@ hr {
     color: var(--muted-color);
 }
 
+.collection-list a + .duration::before {
+    content: "";
+}
+
+.collection-list .duration + span::before {
+    content: " - ";
+    color: var(--muted-color);
+}
+
 @media (max-width: 720px) {
     body {
         font-size: 17px;
