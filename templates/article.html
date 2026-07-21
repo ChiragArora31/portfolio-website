@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ONE-SENTENCE ARTICLE DESCRIPTION">
+    <meta name="author" content="Chirag Arora">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="ARTICLE TITLE - Chirag Arora">
+    <meta property="og:description" content="ONE-SENTENCE ARTICLE DESCRIPTION">
+    <meta property="og:url" content="https://www.chiragarora.tech/ARTICLE-SLUG">
+    <meta property="article:published_time" content="YYYY-MM-DDT00:00:00+05:30">
+    <meta property="article:author" content="Chirag Arora">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ARTICLE TITLE - Chirag Arora">
+    <meta name="twitter:description" content="ONE-SENTENCE ARTICLE DESCRIPTION">
+    <meta name="twitter:creator" content="@iChiragArora">
+
+    <link rel="canonical" href="https://www.chiragarora.tech/ARTICLE-SLUG">
+    <title>ARTICLE TITLE - Chirag Arora</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="scroll-progress" id="scrollProgress" role="progressbar" aria-label="Reading progress"></div>
+
+    <header class="site-header">
+        <nav class="nav" aria-label="Primary navigation">
+            <a href="/">home</a>
+            <a href="/#projects">projects</a>
+            <a href="/writing" aria-current="page">writing</a>
+            <a href="/collection">collection</a>
+            <a href="/#contact">contact</a>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <span class="theme-label">theme</span>
+            </button>
+        </nav>
+    </header>
+
+    <main id="main-content" class="page essay-page">
+        <article>
+            <header class="essay-header">
+                <a class="essay-kicker" href="/writing">&larr; all writing</a>
+                <h1>ARTICLE TITLE</h1>
+                <p class="essay-dek">A precise one- or two-sentence explanation of what this essay investigates and why it matters.</p>
+                <div class="essay-meta">
+                    <span>Chirag Arora</span>
+                    <span aria-hidden="true">·</span>
+                    <time datetime="YYYY-MM-DD">month day, year</time>
+                    <span aria-hidden="true">·</span>
+                    <span>8 min read</span>
+                </div>
+            </header>
+
+            <nav class="essay-toc" aria-labelledby="contents-heading">
+                <h2 id="contents-heading">contents</h2>
+                <ol>
+                    <li><a href="#problem">the problem</a></li>
+                    <li><a href="#approach">the approach</a></li>
+                    <li><a href="#tradeoffs">tradeoffs and failures</a></li>
+                    <li><a href="#takeaways">what i learned</a></li>
+                </ol>
+            </nav>
+
+            <div class="essay-body">
+                <p>Open with the concrete situation that made this worth writing. Prefer an observation from the work over a broad claim about the industry.</p>
+
+                <h2 id="problem">the problem.</h2>
+                <p>Describe the system, constraint, or failure mode precisely. Give the reader enough context to understand why the obvious solution was insufficient.</p>
+
+                <h2 id="approach">the approach.</h2>
+                <p>Explain the architecture and the decisions you made. Use a short code sample when the implementation is more useful than another paragraph.</p>
+
+                <pre><code>// Keep examples small enough to understand without horizontal archaeology.
+const usefulExample = true;</code></pre>
+
+                <h2 id="tradeoffs">tradeoffs and failures.</h2>
+                <p>Write about what did not work, what surprised you, and which compromise you accepted. This is usually the most credible part of a technical essay.</p>
+
+                <blockquote>
+                    <p>Use callouts sparingly—for the sentence that should survive after the implementation details fade.</p>
+                </blockquote>
+
+                <h2 id="takeaways">what i learned.</h2>
+                <p>End with specific lessons, open questions, and what you would change in the next version.</p>
+            </div>
+
+            <footer class="essay-footer">
+                <p><a href="/writing">&larr; back to all writing</a></p>
+            </footer>
+        </article>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

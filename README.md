@@ -22,9 +22,25 @@ A clean, minimalistic, and modern portfolio website showcasing my work as a soft
 ## Sections
 
 - **Hero** - Introduction and key details
-- **Blog** - Featured blog posts
+- **Writing** - Technical essays at `/writing`, with clean root-level article URLs
 - **Projects** - Showcase of key projects with GitHub links
 - **Footer** - Social media and contact links
+
+## Publishing an essay
+
+1. Copy `templates/article.html` into the project root.
+2. Rename it to a short, descriptive slug such as `building-vecsearch-from-scratch.html`.
+3. Replace the uppercase placeholders, write the article, and keep every section heading `id` stable.
+4. Add the article to the list in `writing.html`, newest first.
+5. Add its canonical URL to `sitemap.xml`.
+
+With Vercel clean URLs, the example file is published at:
+
+```text
+https://www.chiragarora.tech/building-vecsearch-from-scratch
+```
+
+Requests containing `.html` permanently redirect to the extensionless URL. `/blog` and `/blogs` also redirect to `/writing`.
 
 ## Installation
 
